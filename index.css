@@ -5,23 +5,19 @@
 }
 
 header, footer{
-    height: 3em;
-    width: 100%;
     background-color: orangered;
-    text-align: center;
 }
 
 header div, footer div {
     display: flex;              
     justify-content: center;    
-    align-items: center;        
-    height: 100%;              
+    align-items: center;  
+    background-color: brown;          
 }
 
 .titulo{
     display: flex;
-    justify-content: center;    
-
+    justify-content: center; 
 }
 
 .formulario{
@@ -31,6 +27,9 @@ header div, footer div {
     flex-direction: column; 
     width: 50%;
     background-color: aqua;
+    border: 0.3em;
+    border-style: dashed;
+    border-color: gray;
 }
 
 .conteudo{
@@ -45,12 +44,17 @@ header div, footer div {
     flex-direction: column; 
     align-items: center; 
     text-align: center;
-
+    border: 0.5em;
+    border-style: dotted;
+    border-color: blue;
 }
 
 .mostrador {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     height: 2em;
     width: 2em;
-    background-color: yellowgreen;
+    background-color: yellowgreen;    
 }
 
