@@ -29,23 +29,23 @@
 
     <div class="conteudo">
 
-        <form>
+        <form id="meuFormulario" method="POST">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="form_nome">Nome</label>
                     <input type="text" class="form-control" id="form_nome" placeholder="Ex: João"
                         oninput="restricaoNomeSobrenome(this)">
-                    <!-- <div class="valid-feedback">
-                        Looks good!
-                    </div> -->
+                    <div class="invalid-feedback">
+                        Campo vazio!
+                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="form_sobrenome">Sobrenome</label>
                     <input type="text" class="form-control" id="form_sobrenome" placeholder="Ex: Silva e Santos"
                         oninput="restricaoNomeSobrenome(this)">
-                    <!-- <div class="invalid-feedback">
-                        Please choose a username.
-                    </div> -->
+                    <div class="invalid-feedback">
+                        Campo vazio!
+                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="form_email">Email</label>
@@ -61,7 +61,11 @@
                         <input type="text" class="form-control " id="form_email"
                             placeholder="Ex: joao_silva_santos@example.com" oninput="validarEmail(this)"
                             aria-describedby="inputGroupPrepend3">
+                        <div class="invalid-feedback">
+                            Campo vazio!
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="form-row">
@@ -69,24 +73,37 @@
                     <label for="form_dataNascimento">Data de Nascimento</label>
                     <input type="date" class="form-control " id="form_dataNascimento"
                         placeholder="Data de Nascimento" />
+                    <div class="invalid-feedback">
+                        Campo vazio!
+                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="form_cpf">CPF</label>
                     <input type="text" class="form-control " id="form_cpf" placeholder="Ex: 123.456.789-10"
                         oninput="restricaoCPF(this)">
+                    <div class="invalid-feedback">
+                        Campo vazio!
+                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="form_telefone">Telefone/Celular</label>
                     <div data-mdb-input-init>
                         <input type="text" class="form-control " id="form_telefone" placeholder="Ex: (XX) 0000-0000" />
+                        <div class="invalid-feedback">
+                            Campo vazio!
+                        </div>
                     </div>
+
                 </div>
 
             </div>
             <div class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="form_cep">CEP</label>
-                    <input type="text" class="form-control " id="form_cep" placeholder="Ex: 12345-679" oninput="restricaoCep(this)">
+                    <input type="text" class="form-control " id="form_cep" placeholder="Ex: 12345-679">
+                    <div class="invalid-feedback">
+                        Campo vazio!
+                    </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="form_estado">Estado</label>
@@ -119,6 +136,9 @@
                     <label for="form_nomeMae">Nome da Mãe</label>
                     <input type="text" class="form-control " id="form_nomeMae" placeholder="Ex: Ana Santos"
                         oninput="restricaoNomeSobrenome(this)">
+                    <div class="invalid-feedback">
+                        Campo vazio!
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -128,20 +148,39 @@
                         Confirmo que os dados preenchidos são verdadeiros.
                     </label>
                     <div class="invalid-feedback">
-                        Você deve concordar antes de clicar em 'Enviar'.
+                        Você deve confirmar antes de enviar.
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-primary" type="submit" id="btnEnviar" data-toggle="modal"
+                data-target="#exampleModal">Enviar</button>
         </form>
 
-        <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </button> -->
-
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja realmente enviar o formulário?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="confirmarEnvio" class="btn btn-primary" id="btnEnviar2"
+                            data-toggle="modal" data-target="#exampleModal2">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -152,12 +191,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h5>Popover in a modal</h5>
-                        <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title"
-                                data-content="Popover body content is set in this attribute.">button</a> triggers a
-                            popover on click.</p>
+                        <h5>Resultado do testes de confiabilidade</h5>
+                        <p> Verificar <a href="#" role="button" class="btn btn-secondary popover-test"
+                                title="Popover title" data-content="Popover body content is set in this attribute."
+                                data-toggle="modal" data-target="#exampleModalScrollable">Testes</a> realizados.</p>
                         <hr>
-                        <h5>Tooltips in a modal</h5>
+                        <h5>O resultado de confiança é: </h5>
                         <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#"
                                 class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
                     </div>
@@ -169,11 +208,32 @@
             </div>
         </div>
 
+        <!-- Modal 3 -->
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Descrever todo resultado dos testes aqui
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -185,7 +245,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
     <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 

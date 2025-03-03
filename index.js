@@ -11,6 +11,7 @@ $(document).ready(function () { //"impõe" padrão de preenchimento do campo
         mask: ["99999-999",],
         keepStatic: true
     });
+
 });
 
 function restricaoNomeSobrenome(i) { //permite que somente letras sejam considerados no campo
@@ -113,36 +114,113 @@ function validaEmail(email) {
 }
 
 function validaDataNascimento(dataNascimento) {
-    
+
 }
 
 //Sinaliza quais campos não estão preenchidos - não restrigem envio
 
-function preenchimentoEmail(nome) {
-    // Remove espaços em branco no início e no fim e verifica se a string está vazia
-    return email.trim() === "";
+function validarInputs(listaIds) {
+    listaIds.forEach(function (id) {
+        $(`#${id}`).blur(function () {
+            const valor = $(this).val().trim();
+
+            if (valor === "") {
+                $(this).removeClass("is-valid");
+                $(this).addClass("is-invalid");
+            } else {
+                $(this).removeClass("is-invalid");
+                $(this).addClass("is-valid");
+            }
+        });
+    });
 }
 
-function preenchimentoSobrenome(sobrenome) {
-    return sobrenome.trim() === "";
+// Lista de IDs dos inputs que você deseja validar
+const idsInputs = [
+    "form_nome",
+    "form_sobrenome",
+    "form_email",
+    "form_dataNascimento",
+    "form_cpf",
+    "form_telefone",
+    "form_cep",
+    "form_nomeMae",
+];
+
+// Chama a função passando a lista de IDs
+validarInputs(idsInputs);
+
+function pverificaPrenchimento(conteudo) {
+    return conteudo.trim() === "";
 }
 
-function preenchimentoEmail(email) {
-    return email.trim() === "";
+function verificaCamposVazios() {
+
+    const validacoes = {
+        "Nome": () => pverificaPrenchimento(document.getElementById("form_nome").value),
+        "Sobrenome": () => pverificaPrenchimento(document.getElementById("form_sobrenome").value),
+        "Email": () => pverificaPrenchimento(document.getElementById("form_email").value),
+        "Data de Nascimento": () => pverificaPrenchimento(document.getElementById("form_dataNascimento").value),
+        "CPF": () => pverificaPrenchimento(document.getElementById("form_cpf").value),
+        "Telefone/Celular": () => pverificaPrenchimento(document.getElementById("form_telefone").value),
+        "CEP": () => pverificaPrenchimento(document.getElementById("form_cep").value),
+        "Nome da Mãe": () => pverificaPrenchimento(document.getElementById("form_nomeMae").value),
+    };
+
+    const camposVazios = [];
+
+    for (const [nomeFuncao, funcao] of Object.entries(validacoes)) {
+        if (funcao()) {
+            camposVazios.push(nomeFuncao); // Adiciona o nome da função à lista de campos vazios
+        }
+    }
+
+    // Gera a mensagem de campos vazios
+    let mensagem;
+    // Se houver campos vazios, exibe no console
+    if (camposVazios.length > 0) {
+        mensagem = "Os seguintes campos estão vazios: " + camposVazios.join(", ") + ". Deseja continuar mesmo assim?";
+        console.log("Os seguintes campos estão vazios:", camposVazios.join(", "));
+    } else {
+        mensagem = "Todos os campos estão preenchidos.";
+        console.log("Todos os campos estão preenchidos. Deseja prosseguir?");
+    }
+
+    document.querySelector("#meuModal .modal-body p").textContent = mensagem;
 }
 
-function preenchimentoDataNasc(dataNasc) {
-    return dataNasc.trim() === "";
-}
+verificaCamposVazios();
 
-function preenchimentoCPF(cpf) {
-    return cpf.trim() === "";
-}
 
-function preenchimentoCEP(cep) {
-    return cep.trim() === "";
-}
+//Validação após clicar no botão de envar
 
-function preenchimentoNomeMae(nomeMae) {
-    return nomeMae.trim() === "";
-}
+
+$(document).ready(function () { //"impõe" padrão de preenchimento do campo
+
+    $("#btnEnviar").click(function (e) {
+        e.preventDefault(); // Impede o envio do formulário
+
+        // Verifica se o checkbox está marcado
+        if (!$("#form_checagem").prop("checked")) {
+            // Adiciona a classe 'is-invalid' para exibir a mensagem de erro
+            $("#form_checagem").addClass("is-invalid");
+        } else {
+            // Remove a classe 'is-invalid' (caso exista)
+            $("#form_checagem").removeClass("is-invalid");
+            // Abre o modal
+            $("#meuModal").modal("show");
+        }
+    });
+
+    // // Configura o botão de confirmação no modal
+    // $("#confirmarEnvio").click(function () {
+    //     $("#meuModal").modal("hide"); // Fecha o modal
+    //     $("#meuFormulario").submit(); // Envia o formulário
+    // });
+
+    // Configura o botão de confirmação no modal
+    // $("#confirmarEnvio").click(function () {
+    //     $("#meuModal").modal("hide"); // Fecha o modal
+    //     $("#meuFormulario").submit(); // Envia o formulário
+    // });
+});
