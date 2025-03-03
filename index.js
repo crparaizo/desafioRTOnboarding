@@ -1,16 +1,44 @@
-$(document).ready(function () {
+
+// Funções de restrição de caracteres nos campos dos formulário - restringe envio
+
+$(document).ready(function () { //"impõe" padrão de preenchimento do campo
     $("#form_telefone").inputmask({
         mask: ["(99) 9999-9999", "(99) 99999-9999",],
         keepStatic: true
     });
+
+    $("#form_cep").inputmask({
+        mask: ["99999-999",],
+        keepStatic: true
+    });
 });
 
+function restricaoNomeSobrenome(i) { //permite que somente letras sejam considerados no campo
+    var v = i.value;
 
-function mascara(i) {
+    if (!/^[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/.test(v[v.length - 1])) {
+        i.value = v.substring(0, v.length - 1);
+        return;
+    }
+}
+
+function restricaoNumero(i) { //permite que somente números sejam considerados no campo
 
     var v = i.value;
 
-    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+    if (isNaN(v[v.length - 1])) {
+        i.value = v.substring(0, v.length - 1);
+        return;
+    }
+
+    i.setAttribute("maxlength", "6");
+}
+
+function restricaoCPF(i) { //permite que somente números sejam considerados no campo
+
+    var v = i.value;
+
+    if (isNaN(v[v.length - 1])) {
         i.value = v.substring(0, v.length - 1);
         return;
     }
@@ -18,7 +46,6 @@ function mascara(i) {
     i.setAttribute("maxlength", "14");
     if (v.length == 3 || v.length == 7) i.value += ".";
     if (v.length == 11) i.value += "-";
-
 }
 
 
@@ -53,7 +80,12 @@ $("#form_cep").blur(function () {
     });
 });
 
-function TestaCPF(strCPF) {
+
+
+//Funções que verificam se conteúdo dos campos é valido - restrige envio
+
+
+function validaCPF(strCPF) {
     var Soma;
     var Resto;
     Soma = 0;
@@ -72,4 +104,45 @@ function TestaCPF(strCPF) {
     if ((Resto == 10) || (Resto == 11)) Resto = 0;
     if (Resto != parseInt(strCPF.substring(10, 11))) return false;
     return true;
+}
+
+function validaEmail(email) {
+    // Regex para validar e-mail
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+function validaDataNascimento(dataNascimento) {
+    
+}
+
+//Sinaliza quais campos não estão preenchidos - não restrigem envio
+
+function preenchimentoEmail(nome) {
+    // Remove espaços em branco no início e no fim e verifica se a string está vazia
+    return email.trim() === "";
+}
+
+function preenchimentoSobrenome(sobrenome) {
+    return sobrenome.trim() === "";
+}
+
+function preenchimentoEmail(email) {
+    return email.trim() === "";
+}
+
+function preenchimentoDataNasc(dataNasc) {
+    return dataNasc.trim() === "";
+}
+
+function preenchimentoCPF(cpf) {
+    return cpf.trim() === "";
+}
+
+function preenchimentoCEP(cep) {
+    return cep.trim() === "";
+}
+
+function preenchimentoNomeMae(nomeMae) {
+    return nomeMae.trim() === "";
 }
