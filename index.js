@@ -347,14 +347,14 @@ function verificaCamposVazios() {
     if (camposVazios.length > 0) {
         mensagem = "Os seguintes campos estão vazios: " + camposVazios.join(", ") + ". Deseja continuar mesmo assim?";
         confiabilidadePreenchimento = false;
-        console.log("Os seguintes campos estão vazios:", camposVazios.join(", "));
+        //console.log("Os seguintes campos estão vazios:", camposVazios.join(", "));
     } else {
-        mensagem = "Todos os campos estão preenchidos.";
+        mensagem = "Todos os campos estão preenchidos. Deseja prosseguir?";
         confiabilidadePreenchimento = true;
-        console.log("Todos os campos estão preenchidos. Deseja prosseguir?");
+        //console.log("Todos os campos estão preenchidos. Deseja prosseguir?");
     }
 
-    document.querySelector("#meuModal .modal-body p").textContent = mensagem;
+    document.querySelector("#modalConfirmacao .modal-body p").textContent = mensagem;
 }
 
 
@@ -379,29 +379,41 @@ $(document).ready(function () { //"impõe" padrão de preenchimento do campo
         } else {
 
             //Atribuir nota grau de confiabilidade
-
             var nota;
             const notaConfiabilidade = document.querySelector('.confiabilidade');
 
             if (confiabilidadeEmail == true && confiabilidadeDataNascimento == true && confiabilidadeCPF == true && confiabilidadePreenchimento == true) {
 
                 nota = Math.floor(Math.random() * 11);
-
-                //input.classList.add('is-invalid');
                 notaConfiabilidade.textContent = nota;
-
             } else {
                 nota = 0;
-
-                //input.classList.add('is-invalid');
                 notaConfiabilidade.textContent = nota;
             }
 
-            // Remove a classe 'is-invalid' (caso exista)
             $("#form_checagem").removeClass("is-invalid");
-            // Abre o modal
-            $("#meuModal").modal("show");
+            $("#modalConfirmacao").modal("show");
         }
     });
 
+    //Configura o botão de confirmação no modal
+    $("#fechar").click(function () {
+        $("#modalTestes").modal("hide"); // Fecha o modal
+    });
+
+
+    //Configura o botão de confirmação no modal
+    $("#finalizar").click(function () {
+        $("#modalTestes").modal("hide"); // Fecha o modal
+        $("#Formulario").submit(); // Envia o formulário
+    });
+
 });
+
+console.log(`
+    🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸
+    🌸                                                🌸
+    🌸         Feito por: Cândida Rosa Paraizo         🌸
+    🌸                                                🌸
+    🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸
+  `);

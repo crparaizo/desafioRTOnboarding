@@ -14,10 +14,10 @@
 </head>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary laranja_bg">
         <div class="container-fluid">
             <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
-                <p>Onboarding de Clientes</p>
+                <p></p>
             </div>
         </div>
     </nav>
@@ -25,11 +25,11 @@
 
 <body>
 
-    <h1 class="titulo">Onboarding de Clientes</h1>
+    <h1 class="text-center azul-cor">Onboarding de Clientes</h1>
 
     <div class="conteudo">
 
-        <form id="meuFormulario" method="POST">
+        <form id="Formulario" method="POST">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="form_nome">Nome</label>
@@ -152,79 +152,79 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit" id="btnEnviar" data-toggle="modal"
-                data-target="#exampleModal">Enviar</button>
+            <button class="btn azul-bg branco-cor" type="submit" id="btnEnviar" data-toggle="modal"
+                data-target="#modalConfirmacao">Enviar</button>
         </form>
 
-        <!-- Modal -->
-        <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal Confirmação -->
+        <div class="modal fade" id="modalConfirmacao" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                        <h5 class="modal-title azulEscuro-cor" id="exampleModalLabel">Confirmação</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Deseja realmente enviar o formulário?</p>
+                        <p></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" id="confirmarEnvio" class="btn btn-primary" id="btnEnviar2"
-                            data-toggle="modal" data-target="#exampleModal2">Confirmar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                        <button type="button" id="confirmarEnvio" class="btn azul-bg branco-cor" id="btnEnviar2"
+                            data-toggle="modal" data-target="#modalConfiabilidade">Confirmar</button>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Modal 2 -->
-        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <!-- Modal Grau de Confiabilidade -->
+        <div class="modal fade" id="modalConfiabilidade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title azulEscuro-cor" id="exampleModalLabel">Validação Antifraude</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h5>Resultado do testes de unidade e funcionais do formulário</h5>
-                        <p> Verificar <a href="#" role="button" class="btn btn-secondary popover-test"
+                        <h5 class="laranjaEscuro_cor">Resultado do testes funcionais e de unidade do formulário</h5>
+                        <p> Verificar <a href="#" role="button" class="btn btn-secondary popover-test amarelo-bg"
                                 title="Popover title" data-content="Popover body content is set in this attribute."
-                                data-toggle="modal" data-target="#exampleModalScrollable">Testes</a> realizados.</p>
+                                data-toggle="modal" data-target="#modalTestes">testes</a> realizados.</p>
                         <hr>
-                        <h5>O resultado de confiança é: </h5>
-                        <p class="confiabilidade"></p>
+                        <h5 class="laranjaEscuro_cor">Grau de Confiabilidade: </h5>
+                        <p class="h1 confiabilidade text-center"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                        <button type="button" class="btn azul-bg branco-cor" id="finalizar">Finalizar</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal 3 -->
-        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+        <!-- Modal de Testes funcionais e de unidades -->
+        <div class="modal fade" id="modalTestes" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                        <h5 class="modal-title azulEscuro-cor" id="exampleModalScrollableTitle">Testes unitários e
+                            funcionais executados:</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Descrever todo resultado dos testes aqui
                         <p></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
                     </div>
                 </div>
             </div>
@@ -262,10 +262,10 @@
     <script src="units_tests.js."></script>
 
 </body>
-<footer>
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+<footer class="laranja_bg">
+    <div class="text-center p-4 azulEscuro-cor h6" style="background-color: rgba(0, 0, 0, 0.05);">
         Criando em fev/2025 por:
-        <a class="text-reset fw-bold" href="https://www.linkedin.com/in/crparaizo/">Cândida Rosa Paraizo</a>
+        <a class="text-reset fw-bold " href="https://www.linkedin.com/in/crparaizo/">Cândida Rosa Paraizo</a>
     </div>
 </footer>
 

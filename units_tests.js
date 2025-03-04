@@ -6,8 +6,7 @@
 //Email
 //#####################
 
-let mensagemTeste = 'Testes unitários e funcionais executados: \n';
-
+let mensagemTeste = '';
 
 // Função para executar os testes
 function runTests_Email() {
@@ -21,7 +20,7 @@ function runTests_Email() {
         //console.log('Email - Teste 1: Passou (Campo vazio)');
         mensagemTeste += 'Email - Teste 1: Passou (Campo vazio)\n';
     } else {
-        console.log('Email - Teste 1: Falhou (Campo vazio)');
+        //console.log('Email - Teste 1: Falhou (Campo vazio)');
         mensagemTeste += 'Email - Teste 1: Falhou (Campo vazio)\n';
     }
 
@@ -29,10 +28,10 @@ function runTests_Email() {
     input.value = 'emailinvalido';
     validaEmail(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'E-mail inválido!') {
-        console.log('Email - Teste 2: Passou (E-mail inválido - sem "@")');
+        //console.log('Email - Teste 2: Passou (E-mail inválido - sem "@")');
         mensagemTeste += 'Email - Teste 2: Passou (E-mail inválido - sem "@")\n';
     } else {
-        console.log('Email - Teste 2: Falhou (E-mail inválido - sem "@")');
+        //console.log('Email - Teste 2: Falhou (E-mail inválido - sem "@")');
         mensagemTeste += 'Email - Teste 2: Falhou (E-mail inválido - sem "@")\n';
     }
 
@@ -40,10 +39,10 @@ function runTests_Email() {
     input.value = 'email@invalido';
     validaEmail(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'E-mail inválido!') {
-        console.log('Email - Teste 3: Passou (E-mail inválido - sem domínio)');
+        //console.log('Email - Teste 3: Passou (E-mail inválido - sem domínio)');
         mensagemTeste += 'Email - Teste 3: Passou (E-mail inválido - sem domínio)\n';
     } else {
-        console.log('Email - Teste 3: Falhou (E-mail inválido - sem domínio)');
+        //console.log('Email - Teste 3: Falhou (E-mail inválido - sem domínio)');
         mensagemTeste += 'Email - Teste 3: Falhou (E-mail inválido - sem domínio)\n';
     }
 
@@ -51,12 +50,16 @@ function runTests_Email() {
     input.value = 'email@valido.com';
     validaEmail(input);
     if (input.classList.contains('is-valid') && invalidFeedback.textContent === '') {
-        console.log('Email - Teste 4: Passou (E-mail válido)');
+        //console.log('Email - Teste 4: Passou (E-mail válido)');
         mensagemTeste += 'Email - Teste 4: Passou (E-mail válido)\n';
     } else {
-        console.log('Email - Teste 4: Falhou (E-mail válido)');
+        //console.log('Email - Teste 4: Falhou (E-mail válido)');
         mensagemTeste += 'Email - Teste 4: Falhou (E-mail válido)\n';
     }
+
+    input.value = '';
+    input.classList.remove('is-invalid');
+    input.classList.remove('is-valid');
 }
 
 // // Executa os testes
@@ -77,10 +80,10 @@ function runTests_DataNascimento() {
     input.value = '';
     validaDataNascimento(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'Campo vazio!') {
-        console.log('Data Nascimento - Teste 1: Passou (Campo vazio)');
+        //console.log('Data Nascimento - Teste 1: Passou (Campo vazio)');
         mensagemTeste += 'Data Nascimento - Teste 1: Passou (Campo vazio)\n';
     } else {
-        console.log('Data Nascimento - Teste 1: Falhou (Campo vazio)');
+        //console.log('Data Nascimento - Teste 1: Falhou (Campo vazio)');
         mensagemTeste += 'Data Nascimento - Teste 1: Falhou (Campo vazio)\n';
     }
 
@@ -90,10 +93,10 @@ function runTests_DataNascimento() {
     input.value = dataMenor18.toISOString().split('T')[0];
     validaDataNascimento(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'Idade inferir a 18 anos!') {
-        console.log('Data Nascimento - Teste 2: Passou (Idade inferior a 18 anos)');
+        //console.log('Data Nascimento - Teste 2: Passou (Idade inferior a 18 anos)');
         mensagemTeste += 'Data Nascimento - Teste 2: Passou (Idade inferior a 18 anos)\n';
     } else {
-        console.log('Data Nascimento - Teste 2: Falhou (Idade inferior a 18 anos)');
+        //console.log('Data Nascimento - Teste 2: Falhou (Idade inferior a 18 anos)');
         mensagemTeste += 'Data Nascimento - Teste 2: Falhou (Idade inferior a 18 anos)\n';
     }
 
@@ -103,10 +106,10 @@ function runTests_DataNascimento() {
     input.value = dataMaior125.toISOString().split('T')[0];
     validaDataNascimento(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'Idade superior a 125 anos!') {
-        console.log('Data Nascimento - Teste 3: Passou (Idade superior a 125 anos)');
+        //console.log('Data Nascimento - Teste 3: Passou (Idade superior a 125 anos)');
         mensagemTeste += 'Data Nascimento - Teste 3: Passou (Idade superior a 125 anos)\n';
     } else {
-        console.log('Data Nascimento - Teste 3: Falhou (Idade superior a 125 anos)');
+        //console.log('Data Nascimento - Teste 3: Falhou (Idade superior a 125 anos)');
         mensagemTeste += 'Data Nascimento - Teste 3: Falhou (Idade superior a 125 anos)\n';
     }
 
@@ -116,10 +119,10 @@ function runTests_DataNascimento() {
     input.value = data18Anos.toISOString().split('T')[0];
     validaDataNascimento(input);
     if (input.classList.contains('is-valid') && invalidFeedback.textContent === '') {
-        console.log('Data Nascimento - Teste 4: Passou (Idade válida - 18 anos)');
+        //console.log('Data Nascimento - Teste 4: Passou (Idade válida - 18 anos)');
         mensagemTeste += 'Data Nascimento - Teste 4: Passou (Idade válida - 18 anos)\n';
     } else {
-        console.log('Data Nascimento - Teste 4: Falhou (Idade válida - 18 anos)');
+        //console.log('Data Nascimento - Teste 4: Falhou (Idade válida - 18 anos)');
         mensagemTeste += 'Data Nascimento - Teste 4: Falhou (Idade válida - 18 anos)\n';
     }
 
@@ -129,12 +132,16 @@ function runTests_DataNascimento() {
     input.value = data125Anos.toISOString().split('T')[0];
     validaDataNascimento(input);
     if (input.classList.contains('is-valid') && invalidFeedback.textContent === '') {
-        console.log('Data Nascimento - Teste 5: Passou (Idade válida - 125 anos)');
+        //console.log('Data Nascimento - Teste 5: Passou (Idade válida - 125 anos)');
         mensagemTeste += 'Data Nascimento - Teste 5: Passou (Idade válida - 125 anos)\n';
     } else {
-        console.log('Data Nascimento - Teste 5: Falhou (Idade válida - 125 anos)');
+        //console.log('Data Nascimento - Teste 5: Falhou (Idade válida - 125 anos)');
         mensagemTeste += 'Data Nascimento - Teste 5: Falhou (Idade válida - 125 anos)\n';
     }
+
+    input.value = '';
+    input.classList.remove('is-invalid');
+    input.classList.remove('is-valid');
 }
 
 // Executa os testes
@@ -155,10 +162,10 @@ function runTests_CPF() {
     input.value = '';
     validaCPF(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'Campo vazio!') {
-        console.log('CPF - Teste 1: Passou (Campo vazio)');
+        //console.log('CPF - Teste 1: Passou (Campo vazio)');
         mensagemTeste += 'CPF - Teste 1: Passou (Campo vazio)\n';
     } else {
-        console.log('CPF - Teste 1: Falhou (Campo vazio)');
+        //console.log('CPF - Teste 1: Falhou (Campo vazio)');
         mensagemTeste += 'CPF - Teste 1: Falhou (Campo vazio)\n';
     }
 
@@ -166,10 +173,10 @@ function runTests_CPF() {
     input.value = '12345678900';
     validaCPF(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'Formato inválido! Use o formato XXX.XXX.XXX-XX.') {
-        console.log('CPF - Teste 2: Passou (Formato inválido - sem pontuação)');
+        //console.log('CPF - Teste 2: Passou (Formato inválido - sem pontuação)');
         mensagemTeste += 'CPF - Teste 2: Passou (Formato inválido - sem pontuação)\n';
     } else {
-        console.log('CPF - Teste 2: Falhou (Formato inválido - sem pontuação)');
+        //console.log('CPF - Teste 2: Falhou (Formato inválido - sem pontuação)');
         mensagemTeste += 'CPF - Teste 2: Falhou (Formato inválido - sem pontuação)\n';
     }
 
@@ -177,10 +184,10 @@ function runTests_CPF() {
     input.value = '123.456.789-0';
     validaCPF(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'Formato inválido! Use o formato XXX.XXX.XXX-XX.') {
-        console.log('CPF - Teste 3: Passou (Formato inválido - pontuação incorreta)');
+        //console.log('CPF - Teste 3: Passou (Formato inválido - pontuação incorreta)');
         mensagemTeste += 'CPF - Teste 3: Passou (Formato inválido - pontuação incorreta)\n';
     } else {
-        console.log('CPF - Teste 3: Falhou (Formato inválido - pontuação incorreta)');
+        //console.log('CPF - Teste 3: Falhou (Formato inválido - pontuação incorreta)');
         mensagemTeste += 'CPF - Teste 3: Falhou (Formato inválido - pontuação incorreta)\n';
     }
 
@@ -188,10 +195,10 @@ function runTests_CPF() {
     input.value = '111.111.111-11';
     validaCPF(input);
     if (input.classList.contains('is-invalid') && invalidFeedback.textContent === 'CPF inválido!') {
-        console.log('CPF - Teste 4: Passou (CPF inválido - dígitos verificadores incorretos)');
+        //console.log('CPF - Teste 4: Passou (CPF inválido - dígitos verificadores incorretos)');
         mensagemTeste += 'CPF - Teste 4: Passou (CPF inválido - dígitos verificadores incorretos)\n';
     } else {
-        console.log('CPF - Teste 4: Falhou (CPF inválido - dígitos verificadores incorretos)');
+        //console.log('CPF - Teste 4: Falhou (CPF inválido - dígitos verificadores incorretos)');
         mensagemTeste += 'CPF - Teste 4: Falhou (CPF inválido - dígitos verificadores incorretos)\n';
     }
 
@@ -199,12 +206,17 @@ function runTests_CPF() {
     input.value = '529.982.247-25'; // CPF válido
     validaCPF(input);
     if (input.classList.contains('is-valid') && invalidFeedback.textContent === '') {
-        console.log('CPF - Teste 5: Passou (CPF válido)');
+        //console.log('CPF - Teste 5: Passou (CPF válido)');
         mensagemTeste += 'CPF - Teste 5: Passou (CPF válido)\n';
     } else {
-        console.log('CPF - Teste 5: Falhou (CPF válido)');
+        //console.log('CPF - Teste 5: Falhou (CPF válido)');
         mensagemTeste += 'CPF - Teste 5: Falhou (CPF válido)\n';
     }
+
+    input.value = '';
+    input.classList.remove('is-invalid');
+    input.classList.remove('is-valid');
+
 }
 
 // Executa os testes
@@ -215,5 +227,30 @@ runTests_CPF();
 //CEP -> Implementação  futura
 //#####################
 
-console.log(mensagemTeste)
-document.querySelector("#exampleModalScrollable .modal-body p").textContent = mensagemTeste;
+//console.log(mensagemTeste)
+document.querySelector("#modalTestes .modal-body p").textContent = mensagemTeste;
+
+// Função para formatar o texto do modal de testes
+function formatarMensagem(mensagem) {
+    // Divide o texto em linhas
+    const linhas = mensagem.split('\n');
+
+    // Cria um array para armazenar as linhas formatadas
+    const linhasFormatadas = linhas.map(linha => {
+        // Se a linha não estiver vazia, formata como um item de teste
+        if (linha.trim() !== "") {
+            return `<div class="teste-item">${linha}</div>`;
+        }
+        return ""; // Ignora linhas vazias
+    });
+
+    // Junta todas as linhas em uma única string
+    return linhasFormatadas.join('');
+}
+
+// Atualiza o conteúdo do modal testes com o texto formatado
+document.querySelector("#modalTestes .modal-body p").innerHTML = `
+    <div class="testes-container">
+        ${formatarMensagem(mensagemTeste)}
+    </div>
+`;

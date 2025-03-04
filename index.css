@@ -1,3 +1,72 @@
-.invalid-feedback{
-    color: blue; /* Altera a cor do texto para azul */
+.invalid-feedback {
+    color: blue;
+    /* Altera a cor do texto para azul */
+}
+
+.conteudo {
+    margin: 1.5em;
+}
+
+.laranja_bg {
+    background-color: #ff9641;
+}
+
+.azul-bg {
+    background-color: #0070c0;
+}
+
+.amarelo-bg {
+    background-color: #8d6800;
+}
+
+.laranja_cor {
+    color: #ff9641;
+}
+
+.laranjaEscuro_cor {
+    color: #853c00;
+}
+
+.azul-cor {
+    color: #0070c0;
+}
+
+.azulEscuro-cor {
+    color: #00406e;
+}
+
+.amarelo-cor {
+    color: #ffd253;
+}
+
+.amareloEscuro-cor {
+    color: #8d6800;
+}
+
+.branco-cor {
+    color: white;
+}
+
+/* Estilo para o container dos testes */
+.teste-item {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Estilo para o título */
+.teste-container h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Espaçamento entre os itens */
+.teste-item+.teste-item {
+    margin-top: 5px;
 }
