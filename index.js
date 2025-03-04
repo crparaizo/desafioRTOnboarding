@@ -1,4 +1,10 @@
-// Funções de restrição de caracteres nos campos dos formulário - restringe envio
+//--------------------------------------------------------------------------------------
+//Testes funcionais
+//--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+// Funções de restrição de caracteres nos campos dos formulário
+//--------------------------------------------------------------------------------------
 
 $(document).ready(function () { //"impõe" padrão de preenchimento do campo
     $("#form_telefone").inputmask({
@@ -50,6 +56,7 @@ function restricaoCPF(i) { //permite que somente números sejam considerados no 
     if (v.length == 11) i.value += "-";
 }
 
+var confiabilidadeCEP = false;
 
 $(document).ready(function () {
     // Função para validar o CEP em tempo real
@@ -64,10 +71,14 @@ $(document).ready(function () {
             // Se o campo estiver vazio
             $(this).removeClass('is-valid is-invalid');
             invalidFeedback.text('Campo vazio!');
+            confiabilidadeCEP = false;
+
         } else if (!regex.test(cep)) {
             // Se o formato do CEP estiver incorreto
             $(this).removeClass('is-valid').addClass('is-invalid');
             invalidFeedback.text('Formato inválido! Use o formato XXXXX-XXX.');
+            confiabilidadeCEP = false;
+
         } else {
             // Se o formato estiver correto, faz a consulta na API
             consultarCEP(cep, $(this), invalidFeedback);
@@ -83,6 +94,7 @@ $(document).ready(function () {
         if (cep.length !== 8) {
             input.removeClass('is-valid').addClass('is-invalid');
             invalidFeedback.text('CEP inválido!');
+            confiabilidadeCEP = true;
             return;
         }
 
@@ -105,6 +117,7 @@ $(document).ready(function () {
                     $("#form_endereco").val(" ");
                     $("#form_cidade").val(" ");
                     $("#form_estado").val(" ");
+                    confiabilidadeCEP = false;
                 }
             })
             .fail(function () {
@@ -114,14 +127,19 @@ $(document).ready(function () {
                 $("#form_endereco").val(" ");
                 $("#form_cidade").val(" ");
                 $("#form_estado").val(" ");
+                confiabilidadeCEP = false;
             });
     }
 });
 
+//--------------------------------------------------------------------------------------
+//Funções que verificam se conteúdo dos campos é valido
+//--------------------------------------------------------------------------------------
 
-//Funções que verificam se conteúdo dos campos é valido - restrige envio
+var confiabilidadeEmail = false;
 
 function validaEmail(input) {
+
     // Regex para validar e-mail
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const email = input.value.trim();
@@ -133,16 +151,22 @@ function validaEmail(input) {
         // Se o campo estiver vazio
         input.classList.add('is-invalid');
         invalidFeedback.textContent = 'Campo vazio!';
+        confiabilidadeEmail = false;
     } else if (!regex.test(email)) {
         // Se o e-mail for inválido
         input.classList.add('is-invalid');
         invalidFeedback.textContent = 'E-mail inválido!';
+        confiabilidadeEmail = false;
     } else {
         // Se o e-mail for válido
         input.classList.remove('is-invalid');
         input.classList.add('is-valid');
+        invalidFeedback.textContent = '';
+        confiabilidadeEmail = true;
     }
 }
+
+var confiabilidadeDataNascimento = false;
 
 function validaDataNascimento(input) {
     // Obtém a data de nascimento do campo
@@ -168,17 +192,27 @@ function validaDataNascimento(input) {
         // Se o campo estiver vazio
         input.classList.add('is-invalid');
         invalidFeedback.textContent = 'Campo vazio!';
+        confiabilidadeDataNascimento = false;
     } else if (idade < 18) {
         // Se a idade for menor que 18 anos
         input.classList.add('is-invalid');
-        invalidFeedback.textContent = 'Você deve ter pelo menos 18 anos!';
+        invalidFeedback.textContent = 'Idade inferir a 18 anos!';
+        confiabilidadeDataNascimento = false;
+    } else if (idade > 125) {
+        // Se a idade for maior que 125 anos
+        input.classList.add('is-invalid');
+        invalidFeedback.textContent = 'Idade superior a 125 anos!';
+        confiabilidadeDataNascimento = false;
     } else {
         // Se a idade for válida
         input.classList.remove('is-invalid');
         input.classList.add('is-valid');
+        invalidFeedback.textContent = '';
+        confiabilidadeDataNascimento = true;
     }
 }
 
+var confiabilidadeCPF = false;
 
 function validaCPF(input) {
     const cpf = input.value.trim();
@@ -191,19 +225,23 @@ function validaCPF(input) {
         // Se o campo estiver vazio
         input.classList.add('is-invalid');
         invalidFeedback.textContent = 'Campo vazio!';
-
+        confiabilidadeCPF = false;
     } else if (!regex.test(cpf)) {
         // Se o formato do CPF estiver incorreto
         input.classList.add('is-invalid');
         invalidFeedback.textContent = 'Formato inválido! Use o formato XXX.XXX.XXX-XX.';
+        confiabilidadeCPF = false;
     } else if (!validarDigitosCPF(cpf)) {
         // Se os dígitos verificadores estiverem incorretos
         input.classList.add('is-invalid');
         invalidFeedback.textContent = 'CPF inválido!';
+        confiabilidadeCPF = false;
     } else {
         // Se o CPF for válido
         input.classList.remove('is-invalid');
         input.classList.add('is-valid');
+        confiabilidadeCPF = true;
+        invalidFeedback.textContent = '';
     }
 }
 
@@ -239,12 +277,11 @@ function validarDigitosCPF(cpf) {
     );
 }
 
-function validaCEP(cep) {
 
-}
+//--------------------------------------------------------------------------------------
+//Sinaliza quais campos não estão preenchidos
+//--------------------------------------------------------------------------------------
 
-
-//Sinaliza quais campos não estão preenchidos - não restrigem envio
 
 function validarInputs(listaIds) {
     listaIds.forEach(function (id) {
@@ -254,7 +291,7 @@ function validarInputs(listaIds) {
             if (valor === "") {
                 $(this).removeClass("is-valid");
                 $(this).addClass("is-invalid");
-            } else {
+            } else if (id == "form_nome" || id == "form_sobrenome" || id == "form_nomeMae") { //campos de nomes só valida se tem preenchimento
                 $(this).removeClass("is-invalid");
                 $(this).addClass("is-valid");
             }
@@ -266,11 +303,11 @@ function validarInputs(listaIds) {
 const idsInputs = [
     "form_nome",
     "form_sobrenome",
-    // "form_email",
-    // "form_dataNascimento",
-    // "form_cpf",
-    // "form_telefone",
-    // "form_cep",
+    "form_email",
+    "form_dataNascimento",
+    "form_cpf",
+    "form_telefone",
+    "form_cep",
     "form_nomeMae",
 ];
 
@@ -281,16 +318,18 @@ function pverificaPrenchimento(conteudo) {
     return conteudo.trim() === "";
 }
 
+var confiabilidadePreenchimento = false;
+
 function verificaCamposVazios() {
 
     const validacoes = {
         "Nome": () => pverificaPrenchimento(document.getElementById("form_nome").value),
         "Sobrenome": () => pverificaPrenchimento(document.getElementById("form_sobrenome").value),
-        // "Email": () => pverificaPrenchimento(document.getElementById("form_email").value),
-        // "Data de Nascimento": () => pverificaPrenchimento(document.getElementById("form_dataNascimento").value),
-        // "CPF": () => pverificaPrenchimento(document.getElementById("form_cpf").value),
-        // "Telefone/Celular": () => pverificaPrenchimento(document.getElementById("form_telefone").value),
-        // "CEP": () => pverificaPrenchimento(document.getElementById("form_cep").value),
+        "Email": () => pverificaPrenchimento(document.getElementById("form_email").value),
+        "Data de Nascimento": () => pverificaPrenchimento(document.getElementById("form_dataNascimento").value),
+        "CPF": () => pverificaPrenchimento(document.getElementById("form_cpf").value),
+        "Telefone/Celular": () => pverificaPrenchimento(document.getElementById("form_telefone").value),
+        "CEP": () => pverificaPrenchimento(document.getElementById("form_cep").value),
         "Nome da Mãe": () => pverificaPrenchimento(document.getElementById("form_nomeMae").value),
     };
 
@@ -307,9 +346,11 @@ function verificaCamposVazios() {
     // Se houver campos vazios, exibe no console
     if (camposVazios.length > 0) {
         mensagem = "Os seguintes campos estão vazios: " + camposVazios.join(", ") + ". Deseja continuar mesmo assim?";
+        confiabilidadePreenchimento = false;
         console.log("Os seguintes campos estão vazios:", camposVazios.join(", "));
     } else {
         mensagem = "Todos os campos estão preenchidos.";
+        confiabilidadePreenchimento = true;
         console.log("Todos os campos estão preenchidos. Deseja prosseguir?");
     }
 
@@ -317,13 +358,15 @@ function verificaCamposVazios() {
 }
 
 
+//--------------------------------------------------------------------------------------
 //Validação após clicar no botão de enviar
+//--------------------------------------------------------------------------------------
 
 
 $(document).ready(function () { //"impõe" padrão de preenchimento do campo
 
     $("#btnEnviar").click(function (e) {
-        e.preventDefault(); // Impede o envio do 
+        e.preventDefault(); // Impede o envio do formulário
 
         //verifica campos vazios e avisa ao usuário
         verificaCamposVazios();
@@ -334,6 +377,26 @@ $(document).ready(function () { //"impõe" padrão de preenchimento do campo
             $("#form_checagem").addClass("is-invalid");
 
         } else {
+
+            //Atribuir nota grau de confiabilidade
+
+            var nota;
+            const notaConfiabilidade = document.querySelector('.confiabilidade');
+
+            if (confiabilidadeEmail == true && confiabilidadeDataNascimento == true && confiabilidadeCPF == true && confiabilidadePreenchimento == true) {
+
+                nota = Math.floor(Math.random() * 11);
+
+                //input.classList.add('is-invalid');
+                notaConfiabilidade.textContent = nota;
+
+            } else {
+                nota = 0;
+
+                //input.classList.add('is-invalid');
+                notaConfiabilidade.textContent = nota;
+            }
+
             // Remove a classe 'is-invalid' (caso exista)
             $("#form_checagem").removeClass("is-invalid");
             // Abre o modal
@@ -341,15 +404,4 @@ $(document).ready(function () { //"impõe" padrão de preenchimento do campo
         }
     });
 
-    // // Configura o botão de confirmação no modal
-    // $("#confirmarEnvio").click(function () {
-    //     $("#meuModal").modal("hide"); // Fecha o modal
-    //     $("#meuFormulario").submit(); // Envia o formulário
-    // });
-
-    // Configura o botão de confirmação no modal
-    // $("#confirmarEnvio").click(function () {
-    //     $("#meuModal").modal("hide"); // Fecha o modal
-    //     $("#meuFormulario").submit(); // Envia o formulário
-    // });
 });
