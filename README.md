@@ -17,7 +17,7 @@ O projeto está organizado da seguinte forma:
 
 `Copy` 
 
-``` onboarding-form/`
+``` onboarding-form/
 ├── index.html          # Página principal do formulário
 ├── index.css           # Estilos personalizados
 ├── index.js            # Lógica de validação e interação (testes funcionais)

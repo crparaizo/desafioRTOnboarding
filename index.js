@@ -348,13 +348,17 @@ function verificaCamposVazios() {
         mensagem = "Os seguintes campos estão vazios: " + camposVazios.join(", ") + ". Deseja continuar mesmo assim?";
         confiabilidadePreenchimento = false;
         //console.log("Os seguintes campos estão vazios:", camposVazios.join(", "));
+        document.querySelector("#modalConfirmacao .modal-body p").textContent = mensagem;
+        document.querySelector("#modalConfirmacao .modal-body p").classList.add("text-danger");
+        document.querySelector("#modalConfirmacao .modal-body p").classList.remove("text-success");
     } else {
         mensagem = "Todos os campos estão preenchidos. Deseja prosseguir?";
         confiabilidadePreenchimento = true;
         //console.log("Todos os campos estão preenchidos. Deseja prosseguir?");
+        document.querySelector("#modalConfirmacao .modal-body p").textContent = mensagem;
+        document.querySelector("#modalConfirmacao .modal-body p").classList.add("text-success");
+        document.querySelector("#modalConfirmacao .modal-body p").classList.remove("text-danger");
     }
-
-    document.querySelector("#modalConfirmacao .modal-body p").textContent = mensagem;
 }
 
 
