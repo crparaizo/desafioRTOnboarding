@@ -16,12 +16,14 @@ Após o preenchimento, os dados podem ser enviados para um backend (não impleme
 O projeto está organizado da seguinte forma:
 
 `Copy` 
+
 ``` onboarding-form/`
 ├── index.html          # Página principal do formulário
 ├── index.css           # Estilos personalizados
 ├── index.js            # Lógica de validação e interação (testes funcionais)
 ├── units_tests.js      # Lógica de validação e interação (testes unitários)
 └── README.md           # Documentação do projeto
+```
 
 # 🎨 Design e Funcionalidades
 
@@ -71,15 +73,25 @@ O projeto está organizado da seguinte forma:
 1. Clone o repositório:
 
 `bash`
+
 `Copy`
+
 `git clone https://github.com/seu-usuario/onboarding-form.git`
 
 2. Navegue até a pasta do projeto:
 
 `bash`
+
 `Copy`
+
 `cd onboarding-form`
 
 3. Abra o arquivo index.html no navegador:
 
 4. Clique duas vezes no arquivo index.html ou use um servidor local (como o Live Server do VS Code).
+
+# Implementações Futuras
+
+* Recursos de acessibilidade
+* Criação de uma API para validação do dados
+* Implementação de testes de integração
