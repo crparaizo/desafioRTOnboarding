@@ -7,13 +7,10 @@ O formulário permite que os clientes insiram seus dados pessoais, como nome, e-
 Após o preenchimento, os dados podem ser enviados para um backend (não implementado neste projeto) ou exibidos no console do navegador para fins de teste.
 
 # 🛠️ Tecnologias Utilizadas
-HTML: Estrutura do formulário.
-
-CSS: Estilização personalizada.
-
-Bootstrap: Design responsivo e componentes pré-estilizados.
-
-JavaScript: Validações em tempo real e interações dinâmicas.
+* HTML: Estrutura do formulário.
+*CSS: Estilização personalizada.
+*Bootstrap: Design responsivo e componentes pré-estilizados.
+*JavaScript: Validações em tempo real e interações dinâmicas.
 
 # 📂 Estrutura do Projeto
 O projeto está organizado da seguinte forma:
@@ -25,58 +22,59 @@ onboarding-form/
 ├── index.js            # Lógica de validação e interação (testes funcionais)
 ├── units_tests.js      # Lógica de validação e interação (testes unitários)
 └── README.md           # Documentação do projeto
-🎨 Design e Funcionalidades
+
+# 🎨 Design e Funcionalidades
+
 ## 1. Formulário de Onboarding
 
-Campos do formulário:
+### Campos do formulário:
 
-Nome completo
+* Nome completo
+* E-mail
+* Telefone
+* Data de Nascimento
+* CPF
+* CEP
+* Nome da mãe
 
-E-mail
+### Validações em tempo real:
 
-Telefone
-
-Data de Nascimento
-
-CPF
-
-Validações em tempo real:
-
-Todos os campos são obrigatórios.
-
-E-mail deve ser válido.
-
-Telefone deve seguir o formato (XX) XXXXX-XXXX.
-
-Data de Nascimento deve ser válida.
-
-CPF deve ser válido.
+* Todos os campos são obrigatórios.
+* E-mail deve ser válido.
+* Telefone deve seguir o formato (XX) XXXXX-XXXX.
+* Data de Nascimento deve ser válida.
+* CPF deve ser válido.
+* CEP deve ser válido.
 
 ## 2. Design Responsivo
-O formulário é totalmente responsivo, adaptando-se a diferentes tamanhos de tela (desktop, tablet e mobile).
+* O formulário é totalmente responsivo, adaptando-se a diferentes tamanhos de tela (desktop, tablet e mobile).
 
 ## 3. Feedback Visual
-Mensagens de erro são exibidas abaixo de cada campo quando os dados são inválidos.
 
-Campos válidos são destacados com uma borda verde.
+*Mensagens de erro são exibidas abaixo de cada campo quando os dados são inválidos ou os campos estão vazios.
+*Campos válidos são destacados com uma borda verde.
+*Campos inválidos são destacados com uma borda vermelha.
+
 
 # 🛠️ Como Executar o Projeto
-Pré-requisitos
-Navegador moderno (Chrome, Firefox, Edge, etc.).
+## Pré-requisitos
+*Navegador moderno (Chrome, Firefox, Edge, etc.).
 
-Conexão com a internet (para carregar o Bootstrap via CDN).
+*Conexão com a internet (para carregar o Bootstrap via CDN).
 
-Passos
-Clone o repositório:
+##Passos
+1. Clone o repositório:
 
-bash
+`bash`
 Copy
 git clone https://github.com/seu-usuario/onboarding-form.git
-Navegue até a pasta do projeto:
 
-bash
+2. Navegue até a pasta do projeto:
+
+`bash`
 Copy
 cd onboarding-form
-Abra o arquivo index.html no navegador:
 
-Clique duas vezes no arquivo index.html ou use um servidor local (como o Live Server do VS Code).
+3. Abra o arquivo index.html no navegador:
+
+4. Clique duas vezes no arquivo index.html ou use um servidor local (como o Live Server do VS Code).
