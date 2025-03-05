@@ -2,9 +2,11 @@
 //Testes de unidade
 //--------------------------------------------------------------------------------------
 
+
 //#####################
 //Email
 //#####################
+
 
 let mensagemTeste = '';
 
@@ -226,6 +228,7 @@ runTests_CPF();
 //#####################
 //CEP -> Implementação  futura
 //#####################
+
 
 //console.log(mensagemTeste)
 document.querySelector("#modalTestes .modal-body p").textContent = mensagemTeste;

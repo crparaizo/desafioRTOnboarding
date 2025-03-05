@@ -17,7 +17,7 @@ O projeto está organizado da seguinte forma:
 
 `Copy` 
 
-``` onboarding-form/
+``` desafioRTOnboarding/
 ├── index.html          # Página principal do formulário
 ├── index.css           # Estilos personalizados
 ├── index.js            # Lógica de validação e interação (testes funcionais)
@@ -41,7 +41,7 @@ O projeto está organizado da seguinte forma:
 
 ### Validações em tempo real:
 
-* Todos os campos são obrigatórios.
+* Todos os campos são obrigatórios para gerar um grau de confiabilidade entre 0 e 10.
 * E-mail deve ser válido.
 * Telefone deve seguir o formato (XX) XXXXX-XXXX.
 * Data de Nascimento deve ser válida.
@@ -53,14 +53,14 @@ O projeto está organizado da seguinte forma:
 
 ## 3. Feedback Visual
 
-* Mensagens de erro são exibidas abaixo de cada campo quando os dados são inválidos ou os campos estão vazios.
+* Mensagens de erro são exibidas abaixo de cada campo quando os dados são inválidos ou qunado os campos estão vazios.
 * Campos válidos são destacados com uma borda verde.
 * Campos inválidos são destacados com uma borda vermelha.
 
 ## Público alvo
 
 * O formulário é direcionado para brasileiros, maiores de 18 anos e que residam no Brasil.
-* Qualquer perfil diferente do mencionado acima pode encontrar restrições ao preencher/enviar o formulário.
+* Qualquer perfil diferente do mencionado acima pode encontrar restrições no preenchimento/envio do formulário.
 
 
 # 🛠️ Como Executar o Projeto
@@ -76,7 +76,7 @@ O projeto está organizado da seguinte forma:
 
 `Copy`
 
-`git clone https://github.com/seu-usuario/onboarding-form.git`
+`git clone https://github.com/crparaizo/desafioRTOnboarding`
 
 2. Navegue até a pasta do projeto:
 
@@ -84,7 +84,7 @@ O projeto está organizado da seguinte forma:
 
 `Copy`
 
-`cd onboarding-form`
+`cd desafioRTOnboarding`
 
 3. Abra o arquivo index.html no navegador:
 
@@ -92,6 +92,9 @@ O projeto está organizado da seguinte forma:
 
 # Implementações Futuras
 
+Com o intuito de tornar a aplicação mais acessível e funcional, garantindo uma experiência inclusiva e eficiente para todos os usuários, as seguintes melhorias estão planejadas:
+
 * Recursos de acessibilidade
-* Criação de uma API para validação do dados
+* Desenvolvimento de uma API para Validação de Dados:
 * Implementação de testes de integração
+* Otimização do carregamento do formulário e das respectivas funções de validação

@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="index.css">
 
 </head>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary laranja_bg">
         <div class="container-fluid">
@@ -24,11 +23,8 @@
 </header>
 
 <body>
-
     <h1 class="text-center azul-cor">Onboarding de Clientes</h1>
-
     <div class="conteudo">
-
         <form id="Formulario" action="" method="GET">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
@@ -65,7 +61,6 @@
                             Campo vazio!
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="form-row">
@@ -93,9 +88,7 @@
                             Campo vazio!
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <div class="form-row">
                 <div class="col-md-3 mb-3">
@@ -129,7 +122,6 @@
                     <label for="form_complemento">Complemento</label>
                     <input type="text" class="form-control " id="form_complemento" placeholder="Ex: Casa 1">
                 </div>
-
             </div>
             <div class="form-row">
                 <div class="col-md-12 mb-3">
@@ -152,19 +144,17 @@
                     </div>
                 </div>
             </div>
-            <button class="btn azul-bg branco-cor" type="submit" id="btnEnviar" data-toggle="modal"
-                >Enviar</button>
+            <button class="btn azul-bg branco-cor" type="submit" id="btnEnviar" data-toggle="modal">Enviar</button>
         </form>
 
         <!-- Modal Confirmação -->
-        <div class="modal fade" id="modalConfirmacao" tabindex="-1" aria-labelledby="exampleModalLabel"
-            >
+        <div class="modal fade" id="modalConfirmacao" tabindex="-1" aria-labelledby="modalConfirmacaoLabel">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title azulEscuro-cor" id="exampleModalLabel">Confirmação</h5>
+                        <h5 class="modal-title azulEscuro-cor" id="modalConfirmacaoLabel">Confirmação</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span >&times;</span>
+                            <span>&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -179,16 +169,15 @@
             </div>
         </div>
 
-
         <!-- Modal Grau de Confiabilidade -->
-        <div class="modal fade" id="modalConfiabilidade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            >
+        <div class="modal fade" id="modalConfiabilidade" tabindex="-1" role="dialog"
+            aria-labelledby="modalConfiabilidadeLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title azulEscuro-cor" id="exampleModalLabel">Validação Antifraude</h5>
+                        <h5 class="modal-title azulEscuro-cor" id="modalConfiabilidadeLabel">Validação Antifraude</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span >&times;</span>
+                            <span>&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -209,15 +198,14 @@
         </div>
 
         <!-- Modal de Testes funcionais e de unidades -->
-        <div class="modal fade" id="modalTestes" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalScrollableTitle" >
+        <div class="modal fade" id="modalTestes" tabindex="-1" role="dialog" aria-labelledby="modalTestesTitle">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title azulEscuro-cor" id="exampleModalScrollableTitle">Testes unitários e
+                        <h5 class="modal-title azulEscuro-cor" id="modalTestesTitle">Testes unitários e
                             funcionais executados:</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span >&times;</span>
+                            <span>&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -230,17 +218,10 @@
             </div>
         </div>
 
-
     </div>
-
 
     <!-- Carregar o jQuery completo -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script> -->
 
     <!-- Carregar o Popper.js necessário para o Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
@@ -251,8 +232,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
     <!-- Carregar o jQuery Inputmask -->
     <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
@@ -265,7 +244,7 @@
 <footer class="laranja_bg">
     <div class="text-center p-4 azulEscuro-cor h6" style="background-color: rgba(0, 0, 0, 0.05);">
         Criando em fev/2025 por:
-        <a class="text-reset fw-bold " href="https://www.linkedin.com/in/crparaizo/">Cândida Rosa Paraizo</a>
+        <a class="text-reset fw-bold " href="https://crparaizo.github.io/">Cândida Rosa Paraizo</a>
     </div>
 </footer>
 
