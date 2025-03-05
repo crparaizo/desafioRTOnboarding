@@ -8,20 +8,20 @@ Após o preenchimento, os dados podem ser enviados para um backend (não impleme
 
 # 🛠️ Tecnologias Utilizadas
 * HTML: Estrutura do formulário.
-*CSS: Estilização personalizada.
-*Bootstrap: Design responsivo e componentes pré-estilizados.
-*JavaScript: Validações em tempo real e interações dinâmicas.
+* CSS: Estilização personalizada.
+* Bootstrap: Design responsivo e componentes pré-estilizados.
+* JavaScript: Validações em tempo real e interações dinâmicas.
 
 # 📂 Estrutura do Projeto
 O projeto está organizado da seguinte forma:
 
 `Copy` 
-`onboarding-form/`
->  ├── index.html          # Página principal do formulário
->  ├── index.css           # Estilos personalizados
->  ├── index.js            # Lógica de validação e interação (testes funcionais)
->  ├── units_tests.js      # Lógica de validação e interação (testes unitários)
->  └── README.md           # Documentação do projeto
+```onboarding-form/`
+├── index.html          # Página principal do formulário
+├── index.css           # Estilos personalizados
+├── index.js            # Lógica de validação e interação (testes funcionais)
+├── units_tests.js      # Lógica de validação e interação (testes unitários)
+└── README.md           # Documentação do projeto
 
 # 🎨 Design e Funcionalidades
 
@@ -58,7 +58,7 @@ O projeto está organizado da seguinte forma:
 ## Público alvo
 
 * O formulário é direcionado para brasileiros, maiores de 18 anos e que residam no Brasil.
-* Qualquer perfil diferente do mencionado acima pode encontrar restrições ao preencher/enviar o formulário
+* Qualquer perfil diferente do mencionado acima pode encontrar restrições ao preencher/enviar o formulário.
 
 
 # 🛠️ Como Executar o Projeto
