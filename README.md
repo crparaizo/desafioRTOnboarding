@@ -15,13 +15,13 @@ Após o preenchimento, os dados podem ser enviados para um backend (não impleme
 # 📂 Estrutura do Projeto
 O projeto está organizado da seguinte forma:
 
-Copy
-onboarding-form/
-├── index.html          # Página principal do formulário
-├── index.css           # Estilos personalizados
-├── index.js            # Lógica de validação e interação (testes funcionais)
-├── units_tests.js      # Lógica de validação e interação (testes unitários)
-└── README.md           # Documentação do projeto
+`Copy` 
+`onboarding-form/`
+>  ├── index.html          # Página principal do formulário
+>  ├── index.css           # Estilos personalizados
+>  ├── index.js            # Lógica de validação e interação (testes funcionais)
+>  ├── units_tests.js      # Lógica de validação e interação (testes unitários)
+>  └── README.md           # Documentação do projeto
 
 # 🎨 Design e Funcionalidades
 
@@ -51,29 +51,34 @@ onboarding-form/
 
 ## 3. Feedback Visual
 
-*Mensagens de erro são exibidas abaixo de cada campo quando os dados são inválidos ou os campos estão vazios.
-*Campos válidos são destacados com uma borda verde.
-*Campos inválidos são destacados com uma borda vermelha.
+* Mensagens de erro são exibidas abaixo de cada campo quando os dados são inválidos ou os campos estão vazios.
+* Campos válidos são destacados com uma borda verde.
+* Campos inválidos são destacados com uma borda vermelha.
+
+## Público alvo
+
+* O formulário é direcionado para brasileiros, maiores de 18 anos e que residam no Brasil.
+* Qualquer perfil diferente do mencionado acima pode encontrar restrições ao preencher/enviar o formulário
 
 
 # 🛠️ Como Executar o Projeto
+
 ## Pré-requisitos
-*Navegador moderno (Chrome, Firefox, Edge, etc.).
+* Navegador moderno (Chrome, Firefox, Edge, etc.).
+* Conexão com a internet (para carregar o Bootstrap via CDN).
 
-*Conexão com a internet (para carregar o Bootstrap via CDN).
-
-##Passos
+## Passos
 1. Clone o repositório:
 
 `bash`
-Copy
-git clone https://github.com/seu-usuario/onboarding-form.git
+`Copy`
+`git clone https://github.com/seu-usuario/onboarding-form.git`
 
 2. Navegue até a pasta do projeto:
 
 `bash`
-Copy
-cd onboarding-form
+`Copy`
+`cd onboarding-form`
 
 3. Abra o arquivo index.html no navegador:
 
